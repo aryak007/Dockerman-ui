@@ -1,0 +1,80 @@
+<div class = "dockerImages">
+<div class="cardClass" *ngFor="let data of dockerData; let i = index">
+<mat-card class="example-card"  [@fadeInOut] >
+  <mat-card-header>
+    <!--div mat-card-avatar class="example-header-image">Docker</div-->
+    <mat-card-title><b>{{data.displayName}}</b></mat-card-title>
+    <mat-card-subtitle>{{data.size}}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content *ngFor="let tag of data.imageRepoTags;">
+        {{tag}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" mat-button type="button" (click)="modalNewTag.open()">New tag</button>
+     <button mat-raised-button color="warn" mat-button type="button" (click)="deleteTag.open()">Remove tag</button>
+    <button mat-raised-button color="warn" mat-button  type="button" (click)="modalDelete.open()">Delete</button>
+   
+  </mat-card-actions>
+
+</mat-card>  
+<bs-modal #modalDelete>
+    <bs-modal-header>
+        <h4 class="modal-title">Image {{i}}</h4>
+    </bs-modal-header>
+    <bs-modal-body >
+      Are you sure about deleting the image <b>{{data.displayName}}</b> with the following tag(s):<br>
+      <div  *ngFor="let tag of data.imageRepoTags;">
+       <b>{{tag}}</b>
+      </div>
+    </bs-modal-body>
+    <bs-modal-footer>
+      <a type="button" class="btn btn-primary"  (click)="deleteImage(i,data.commitId)">Delete</a>
+      
+    </bs-modal-footer>
+</bs-modal>
+
+<bs-modal #deleteTag  (onShow)="resetTagSelected();">
+    <bs-modal-header>
+        <h4 class="modal-title">{{data.displayName}}</h4>
+    </bs-modal-header>
+    <bs-modal-body>
+        <mat-radio-group class="example-radio-group" [(ngModel)]="tagSelected">
+            <mat-radio-button class="example-radio-button" *ngFor="let tag of data.imageRepoTags;" [value]="tag">
+                {{tag}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </bs-modal-body>
+    <bs-modal-footer>
+      <a *ngIf="tagSelected" type="button" class="btn btn-primary"  (click)="removeTag(tagSelected)">Delete Tag</a>
+      
+    </bs-modal-footer>
+</bs-modal>
+
+
+<bs-modal #modalNewTag (onShow)="resetNewTagName();">
+    <bs-modal-header>
+        <h4 class="modal-title">{{data.displayName}}</h4>
+    </bs-modal-header>
+    <bs-modal-body>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Insert new Tag name" [(ngModel)]="newTagName">
+        </mat-form-field>
+    </bs-modal-body>
+    <bs-modal-footer>
+      <a *ngIf="newTagName" type="button" class="btn btn-primary"  (click)="tagImage(data.fullName,newTagName)">Create Tag</a>
+      <!--mat-progress-spinner [(ngModel)]="showProgressSpinner" *ngIf="showProgressSpinner"
+        class="example-margin"
+        [color]="primary"
+        [mode]="indeterminate"
+        [value]="1">
+    </mat-progress-spinner-->
+    </bs-modal-footer>
+</bs-modal>
+</div>
+
+</div>
+
+
+
+

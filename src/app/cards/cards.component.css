@@ -1,0 +1,61 @@
+.cardClass {
+    display: inline-block;
+    width: 23%;
+    margin: 10px;
+    vertical-align: top;
+   
+  }
+  .example-card{
+     background: lightcyan;
+  }
+
+
+
+
+ body {
+  background: #e2e1e0;
+  text-align: center;
+}
+
+
+/*.example-card {
+  background: #fff;
+  border-radius: 2px;
+  
+  height: auto;
+  margin: 1rem;
+  position: relative;
+  width: auto;
+  float:left;
+}*/
+
+.example-card:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+  mat-card-content {
+    overflow-x: scroll;
+
+}
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+.example-full-width {
+  width: 100%;
+}
+
+.mat-progress-spinner{
+  width: 100%;
+}
+

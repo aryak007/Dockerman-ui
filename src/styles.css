@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './assets/resources/vendor/bootstrap/css/bootstrap.min.css';
+@import './assets/resources/vendor/font-awesome/css/font-awesome.min.css';
+body {
+    padding: 2em 23em;
+    background:lightgray;
+}
+
+.basic-container {
+  padding: 5px;
+}
