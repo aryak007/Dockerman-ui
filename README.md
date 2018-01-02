@@ -1,5 +1,11 @@
 # DockermanUi
 
+The server for DockermanUI is here [Dockerman Service](https://github.com/aryak93/Dockerman)
+
+The control panel provides an interface for functionalities like removing tags, creating tags,removing images etc.
+
+![Alt Text](https://github.com/aryak93/Dockerman-ui/blob/master/src/assets/resources/DockermanUI.gif)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
 
 ## Development server
