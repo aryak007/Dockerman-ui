@@ -10,7 +10,11 @@ export class DockerNewTagService {
   private observable: Observable<any>;
 
   public tagImage(tagName: any,newTag:any): Observable<any[]>{
-        return this._http.post("http://localhost:3000/api/tagImage/"+tagName+"/"+newTag, { headers: this.getHeaders() })
+        let body = {
+            imageName:tagName,
+            tagName:newTag
+        }
+        return this._http.post("http://localhost:3000/api/tagImage",body, { headers: this.getHeaders() })
             .map((res: Response) => res.json())
             .retry(2)
             .catch(this.handleError);
