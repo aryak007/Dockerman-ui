@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatInputModule, MatProgressSpinnerModule, MatRadioModule, MatDialogModule, MatSidenavModule, MatMenu, MatMenuItem, MatGridListModule, MatListModule, MatTabsModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatProgressSpinnerModule, MatRadioModule, MatDialogModule, MatSidenavModule, MatMenu, MatMenuItem, MatGridListModule, MatListModule, MatTabsModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatChipsModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
@@ -20,6 +20,7 @@ import { DockerImageDeletionService } from './docker-image-deletion.service';
 import { DockerTagDeletionService } from './docker-tag-deletion.service';
 import { DockerNewTagService } from './docker-new-tag.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChipsComponent } from './chips/chips.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     AppComponent,
     CardsComponent,
     SidenavComponent,
-    DashboardComponent
+    DashboardComponent,
+    ChipsComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -60,7 +62,8 @@ const appRoutes: Routes = [
     JsonpModule,
     BsModalModule,
     MatRadioModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatChipsModule
   ],
   providers: [DockerImageDetailFetchServiceService, MediaMatcher, DockerImageDeletionService, DockerTagDeletionService, DockerNewTagService],
   bootstrap: [AppComponent]

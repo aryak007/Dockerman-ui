@@ -7,14 +7,13 @@
     <mat-card-subtitle>{{data.size}}</mat-card-subtitle>
   </mat-card-header>
   
-  <mat-card-content *ngFor="let tag of data.imageRepoTags;">
-        {{tag}}
+  <mat-card-content>
+     <a href = "#modalListTags" (click)="modalListTags.open()">{{data.totalTags}} tags</a> present
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="primary" mat-button type="button" (click)="modalNewTag.open()">New tag</button>
      <button mat-raised-button color="warn" mat-button type="button" (click)="deleteTag.open()">Remove tag</button>
     <button mat-raised-button color="warn" mat-button  type="button" (click)="modalDelete.open()">Delete</button>
-   
   </mat-card-actions>
 
 </mat-card>  
@@ -34,20 +33,32 @@
     </bs-modal-footer>
 </bs-modal>
 
-<bs-modal #deleteTag  (onShow)="resetTagSelected();">
+
+<bs-modal #modalListTags>
+    <bs-modal-header>
+        <h4 class="modal-title">Image {{i}}</h4>
+    </bs-modal-header>
+    <bs-modal-body >
+      Tag(s) for this image -  <b>{{data.displayName}}</b> :<br>
+      <div  *ngFor="let tag of data.imageRepoTags;">
+       <b>{{tag}}</b>
+      </div>
+    </bs-modal-body>
+</bs-modal>
+
+<bs-modal #deleteTag  (onShow)="resetImageSelected();">
     <bs-modal-header>
         <h4 class="modal-title">{{data.displayName}}</h4>
     </bs-modal-header>
     <bs-modal-body>
-        <mat-radio-group class="example-radio-group" [(ngModel)]="tagSelected">
+        <mat-radio-group class="example-radio-group" [(ngModel)]="imageSelected">
             <mat-radio-button class="example-radio-button" *ngFor="let tag of data.imageRepoTags;" [value]="tag">
                 {{tag}}
             </mat-radio-button>
         </mat-radio-group>
     </bs-modal-body>
     <bs-modal-footer>
-      <a *ngIf="tagSelected" type="button" class="btn btn-primary"  (click)="removeTag(tagSelected)">Delete Tag</a>
-      
+      <a *ngIf="tagSelected"  (click)="removeTag(tagSelected)">Delete Tag</a>
     </bs-modal-footer>
 </bs-modal>
 

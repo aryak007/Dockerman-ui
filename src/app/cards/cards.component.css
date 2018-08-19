@@ -30,13 +30,17 @@
 }*/
 
 .example-card:hover{
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 
   mat-card-content {
     overflow-x: scroll;
 
+}
+
+mat-card-actions{
+  text-align: center;
 }
 
 .example-radio-group {
@@ -58,4 +62,8 @@
 .mat-progress-spinner{
   width: 100%;
 }
+ #bs-modal-body{
+   font:30px;
+ }
+
 
